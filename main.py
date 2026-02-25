@@ -120,9 +120,10 @@ def get_preferences():
 
 def get_companies():
     conn = sqlite3.connect(DB_NAME)
+    conn.row_factory = sqlite3.Row
     c = conn.cursor()
     c.execute("SELECT id, name, career_url, job_link_pattern FROM companies")
-    rows = [{'id': r[0], 'name': r[1], 'career_url': r[2], 'job_link_pattern': r[3]} for r in c.fetchall()]
+    rows = [dict(r) for r in c.fetchall()]
     conn.close()
     return rows
 

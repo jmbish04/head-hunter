@@ -10,8 +10,8 @@ from urllib.parse import urljoin
 from scrapling.fetchers import StealthySession
 
 # Environment Configuration
-CF_ACCOUNT_ID = os.environ.get("CF_ACCOUNT_ID", "your_account_id")
-CF_API_TOKEN = os.environ.get("CF_API_TOKEN", "your_api_token")
+CF_ACCOUNT_ID = os.environ["CF_ACCOUNT_ID"]
+CF_API_TOKEN = os.environ["CF_API_TOKEN"]
 CF_GATEWAY_ID = os.environ.get("CF_GATEWAY_ID", "my-ai-gateway")
 MODEL_NAME = "@cf/meta/llama-3.1-8b-instruct"
 DB_NAME = "job_scraper.db"

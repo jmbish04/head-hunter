@@ -106,7 +106,7 @@ def call_cloudflare_ai(prompt, system_prompt="You are a helpful assistant.", jso
             return json.loads(result)
 
         return result
-    except Exception as e:
+    except (requests.exceptions.RequestException, json.JSONDecodeError) as e:
         print(f"Error calling Cloudflare AI: {e}")
         return {} if json_mode else ""
 

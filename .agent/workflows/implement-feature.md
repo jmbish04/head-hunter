@@ -5,7 +5,7 @@ Deploy a resilient, adaptive Python web scraper that reads configuration from SQ
 
 ## Steps
 1. **Dependency Installation**:
-   - Ensure `pip install "scrapling[all]" requests` is run.
+   - Ensure `pip install "scrapling[all]" requests sqlite3` is run.
    - Run `scrapling install` to pull down the browser engine dependencies.
 2. **Environment Setup**:
    - Configure `.env` with `CF_ACCOUNT_ID`, `CF_API_TOKEN`, and `CF_GATEWAY_ID`.

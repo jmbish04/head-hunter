@@ -130,7 +130,7 @@ def get_companies():
 def upsert_job(job_dict):
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
-    c.execute("SELECT id, location, salary, description FROM jobs WHERE job_url = ?", (job_dict['job_url'],))
+    c.execute("SELECT id, title, location, salary, description FROM jobs WHERE job_url = ?", (job_dict['job_url'],))
     row = c.fetchone()
 
     has_changed = False
@@ -139,7 +139,7 @@ def upsert_job(job_dict):
 
     if row:
         job_id = row[0]
-        if row[1] != job_dict['location'] or row[2] != job_dict['salary'] or row[3] != job_dict['description']:
+        if row[1] != job_dict['title'] or row[2] != job_dict['location'] or row[3] != job_dict['salary'] or row[4] != job_dict['description']:
             has_changed = True
             c.execute("""
                 UPDATE jobs
